@@ -13,7 +13,7 @@ using PriceType = std::int64_t;
 
 // This one times out on Test Case 11
 // sort by year (they're already sorted so that's nice)
-void naive()
+PriceType naive()
 {
     std::vector<PriceType> prices;
     YearType n;
@@ -49,11 +49,18 @@ void naive()
         }
     }
     // std::cout << '\n' << minimum_loss << '\n';
-    std::cout << minimum_loss;
+    return minimum_loss;
 }
 
 
 int main()
 {
-    naive();
+#ifdef NAIVE
+    PriceType minimum_loss = naive();
+#endif
+    std::cout << minimum_loss;
+
+// Finally compare them if I can
+#ifdef COMPARE
+#endif
 }
